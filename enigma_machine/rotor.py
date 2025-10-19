@@ -30,27 +30,27 @@ class Rotor:
         self.entalhes = [] # Armazena as posições dos entalhes
         
         # determina as posições atuais dos rotores 'A' -> 0, 'B' -> 1
-        self.posicoes = [self.ALFABETO.find(p) for p in posicoes_iniciais]
+        self.posicoes = [self.ABC.find(p) for p in posicoes_iniciais]
         
         # determina a configuração atual dos anéis 'A' -> 0, 'B' -> 1
-        self.aneis = [self.ALFABETO.find(a) for a in config_aneis]
+        self.aneis = [self.ABC.find(a) for a in config_aneis]
         
         # configura os 3 rotores da esquerda para a direita
         for nome_rotor in rotores_escolhidos:
             fio, notch = self.ROTOR_DATA[nome_rotor]
             
             # mapeamento de ida 
-            self.rotores.append({self.ALFABETO[i]: fio[i] for i in range(26)})
+            self.rotores.append({self.ABC[i]: fio[i] for i in range(26)})
             
             # mapeamento de volta 
-            self.rotores_inv.append({fio[i]: self.ALFABETO[i] for i in range(26)})
+            self.rotores_inv.append({fio[i]: self.ABC[i] for i in range(26)})
             
             # posição do notch 'Q' -> 16
-            self.entalhes.append(self.ALFABETO.find(notch))
+            self.entalhes.append(self.ABC.find(notch))
 
         # configura o refletor
         fio_refletor = self.REFLECTOR_DATA[refletor_escolhido]
-        self.refletor = {self.ALFABETO[i]: fio_refletor[i] for i in range(26)} 
+        self.refletor = {self.ABC[i]: fio_refletor[i] for i in range(26)} 
         
     def rotacionar_rotores(self):
         """
@@ -108,12 +108,12 @@ class Rotor:
         # 3. Passa pela fiação (ida ou volta)
         if not reverso:
             mapa = self.rotores[id_rotor]
-            char_saida = mapa[self.ALFABETO[idx_entrada]]
+            char_saida = mapa[self.ABC[idx_entrada]]
         else:
             mapa_inv = self.rotores_inv[id_rotor]
-            char_saida = mapa_inv[self.ALFABETO[idx_entrada]]
+            char_saida = mapa_inv[self.ABC[idx_entrada]]
             
-        idx_saida_fio = self.ALFABETO.find(char_saida)
+        idx_saida_fio = self.ABC.find(char_saida)
         
         # 4. Remove o deslocamento na saída[]
         idx_final = (idx_saida_fio - deslocamento + 26) % 26
@@ -126,7 +126,7 @@ class Rotor:
         # 1. Rotacionar os rotores ANTES de criptografar
         self.rotacionar_rotores()
         
-        idx = self.ALFABETO.find(letra)
+        idx = self.ABC.find(letra)
         
         # 2. Caminho de IDA (Rápido -> Meio -> Lento)
         # (Note que os rotores estão na ordem [Lento, Meio, Rápido] 
@@ -136,21 +136,21 @@ class Rotor:
         idx = self.passar_pelo_rotor(idx, 0, reverso=False) # Rotor Lento (I)
         
         # 3. Refletor
-        char_refletido = self.refletor[self.ALFABETO[idx]]
-        idx = self.ALFABETO.find(char_refletido)
+        char_refletido = self.refletor[self.ABC[idx]]
+        idx = self.ABC.find(char_refletido)
         
         # 4. Caminho de VOLTA (Lento -> Meio -> Rápido)
         idx = self.passar_pelo_rotor(idx, 0, reverso=True) # Rotor Lento (I)
         idx = self.passar_pelo_rotor(idx, 1, reverso=True) # Rotor Meio (II)
         idx = self.passar_pelo_rotor(idx, 2, reverso=True) # Rotor Rápido (III)
         
-        return self.ALFABETO[idx]
+        return self.ABC[idx]
 
     def criptografar_texto(self, texto):
         """Criptografa uma string completa"""
         texto_cifrado = ""
         for letra in texto:
-            if letra in self.ALFABETO:
+            if letra in self.ABC:
                 texto_cifrado += self.criptografar_letra(letra)
             # (ignora espaços, números, etc.)
         return texto_cifrado
