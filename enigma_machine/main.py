@@ -6,13 +6,13 @@ from rotor import Rotor
 # Configuração dos Anéis: A, A, A (ou 01, 01, 01)
 # Refletor: B
 
-# Nota: O texto 'OLAMUNDO' tem 'M'. Vamos testar com 'AAAAA' para ver o giro
-texto = "AAAAA"
+# 'AAAAA' para ver o giro
+texto = "DECIFRANDO UM TEXTO QUALQUER"
 
 # 1. Cifrando
 maquina_cifra = Rotor(
     rotores_escolhidos = ['I', 'II', 'III'],
-    posicoes_iniciais = ['A', 'A', 'Z'], # Perto de um entalhe!
+    posicoes_iniciais = ['A', 'A', 'Z'], # Perto de um entalhe
     config_aneis       = ['A', 'A', 'A'],
     refletor_escolhido = 'B'
 )
@@ -22,7 +22,7 @@ print(f"Texto original: {texto}")
 print(f"Texto cifrado:  {cifrado}") # Deve ser 'BDZGO'
 
 
-# 2. Decifrando (a Enigma é recíproca)
+# 2. Decifrando 
 # Basta criar uma máquina EXATAMENTE IGUAL
 maquina_decifra = Rotor(
     rotores_escolhidos = ['I', 'II', 'III'],
