@@ -7,7 +7,7 @@ from rotor import Rotor
 # Refletor: B
 
 # 'AAAAA' para ver o giro
-texto = "DECIFRANDO UM TEXTO QUALQUER"
+texto = "AAAAA"
 
 # 1. Cifrando
 maquina_cifra = Rotor(
