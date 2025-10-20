@@ -12,7 +12,7 @@ import validation
 
 def main():
     
-    txt = input("Escreva o texto que deseja encriptografar")
+   
     
 
 

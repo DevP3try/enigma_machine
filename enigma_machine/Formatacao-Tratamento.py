@@ -7,7 +7,7 @@ import re
 ALFABETO = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 ROTORES_VALIDOS = ["I", "II", "III", "IV", "V"]
 REFLETORES_VALIDOS = ["B", "C"]
-ROTORES_PADRAO = ["I", "II", "III"]  # Rotores padrão usados automaticamente
+# Rotores padrão usados automaticamente
 
 # ==========================
 # FORMATADORES
