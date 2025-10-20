@@ -1,9 +1,9 @@
 def plugboard(chave_plug, txt_to_crypt):
 
     chave = {} # Transformando a variavel "chave" em um dicionario
-    config_plug = chave_plug.replace(" ","") # Utilizando o replace para retirar os espaços da string
     chave_inv = {} 
     crypted_txt = "" 
+    config_plug = chave_plug.replace(" ","") # Utilizando o replace para retirar os espaços da string
 
     '''
     Necessário criar dois caminhos, ida e volta, dos quais irá pegar o numero de letras que estão dentro do dicionario, e em uma distancia indicada (para não dar conflito entre o espaçamento e a letra que estava ligada a outra), possibilitando utilizar a função "update" e mesclar ambos os dicionários realizando assim a alteração de variaveis.
