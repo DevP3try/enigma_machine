@@ -11,12 +11,11 @@ def input_txt(txt):
 
 def input_plugboard(plug_str):
     plugboard = format.format_plug(plug_str)
-    val.validar_plugboard(plugboard)
     return plugboard
 
 def input_rotores(rotores):
-    #rotores = format.format_rotores(rotores): # NECESSARIO IMPLEMENTAR AINDA
-    val.validar(rotores)
+    rotores = format.format_rotores(rotores) # NECESSARIO IMPLEMENTAR AINDA
+    val.validar_rotores(rotores)
     return rotores
 
 
@@ -40,9 +39,12 @@ def testes():
     print(input_txt('Willian 123!@# Caso de Teste.'))
     print(input_txt('Hello, World! This is a Test 456.'))
 
-    #print(input_rotores(['I', 'II', 'III']))
-    #print(input_rotores(['IV', 'V', 'I']))
+    print(input_rotores('I II III'))
+    print(input_rotores('IV V I'))
 
+    plugboard = input_plugboard('AB CD EF GH IJ')
+    print(plugboard)
+    
     print(input_pos_inicial('AAA'))
     print(input_pos_inicial('XYZ'))
     print("=========================")
@@ -52,6 +54,6 @@ def testes():
     print(input_refletor('B'))
     print(input_refletor('C'))
 
-testes()
+
 
 

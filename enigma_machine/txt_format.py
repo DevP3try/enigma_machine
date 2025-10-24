@@ -7,7 +7,7 @@ import re
 ALFABETO = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 ROTORES_VALIDOS = ["I", "II", "III", "IV", "V"]
 REFLETORES_VALIDOS = ["B", "C"]
-ROTORES_PADRAO = ["I", "II", "III"]  # Rotores padrão usados automaticamente
+
 
 # ==========================
 # FORMATADORES
@@ -42,6 +42,14 @@ def format_plug(plug_str: str) -> str:
     # Retorna uma string formatada com os pares
     return " ".join(sorted([f"{a}{b}" for a, b in plug_dict.items() if a < b]))
 
+def format_rotores(rotor_str: str) -> list:
+    """
+    Processa o rotores escolhidos, removendo espaços e convertendo para maiúsculo.
+    """
+    
+    rotor_str = rotor_str.upper().split(' ')
+    
+    return list(rotor_str)
 
 def format_pos_inicial(pos_inicial_str: str) -> list[str]:
     """
