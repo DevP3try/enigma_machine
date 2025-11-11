@@ -54,18 +54,18 @@ class Rotor:
         r1_no_entalhe = (self.posicoes[2] == self.entalhes[2]) # True or False que esta no entalhe 
 
         # O Rotor 1 (rápido) SEMPRE gira
-        self.posicoes[2] = (self.posicoes[2] + 1) % 26 
+        self.posicoes[2] = (self.posicoes[2] + 1) % self.N 
         
         if r2_no_entalhe:
             # Caso do Passo Duplo: Rotor 2 está no entalhe.
             # Ele gira, e faz o Rotor 3 (lento) girar também.
-            self.posicoes[1] = (self.posicoes[1] + 1) % 26 # rotor 2 (medio)
-            self.posicoes[0] = (self.posicoes[0] + 1) % 26 # rotor 3 (lento)
+            self.posicoes[1] = (self.posicoes[1] + 1) % self.N # rotor 2 (medio)
+            self.posicoes[0] = (self.posicoes[0] + 1) % self.N # rotor 3 (lento)
             
         elif r1_no_entalhe:
             # Caso normal: Rotor 1 atingiu seu entalhe.
             # Ele faz o Rotor 2 (meio) girar.
-            self.posicoes[1] = (self.posicoes[1] + 1) % 26 # rotor 2 (medio)
+            self.posicoes[1] = (self.posicoes[1] + 1) % self.N # rotor 2 (medio)
             
     def passar_pelo_rotor(self, char_idx, id_rotor, reverso=False):
         # Posição do rotor (Ex: 'C' -> 2)

@@ -14,9 +14,14 @@ REFLETORES_VALIDOS = ["B", "C"]
 # ==========================
 def format_txt(texto: str) -> str:
 
-    texto = unicodedata.normalize('NFD', texto).encode('ascii', 'ignore').decode('ascii').upper()
-    texto_limpo = "".join(c for c in texto if c in ALFABETO_BR_52)
-    return texto_limpo
+    texto_normalizado = unicodedata.normalize('NFC', texto.upper())
+    
+    texto_formatado = []
+    for char in texto_normalizado:
+        if char in ALFABETO_BR_52:
+            texto_formatado.append(char)
+            
+    return "".join(texto_formatado)
 
 def format_plug(plug_str: str) -> str:
     """ Transforma a configuração do plugboard em uma string formatada e valida duplicidade e pares inválidos.
