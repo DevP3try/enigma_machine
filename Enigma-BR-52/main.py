@@ -2,7 +2,7 @@ from rotor import Rotor
 import plugboard as pg
 import input_data as data
 
-
+ABC = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ÁÀÂÃÇÉÊÍÓÔÕÚ .,?°:"
 def main():
     """Executa um ciclo completo de configuração e criptografia da Enigma."""
     

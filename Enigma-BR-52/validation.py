@@ -1,4 +1,6 @@
-ALFABETO_BR_52 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ÁÀÂÃÇÉÊÍÓÔÕÚ.,?"
+
+
+ALFABETO_BR_52 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ÁÀÂÃÇÉÊÍÓÔÕÚ .,?°:"
 ROTORES_VALIDOS = ["I", "II", "III", "IV", "V"]
 REFLETORES_VALIDOS = ["B", "C"]
 ROTORES_PADRAO = ["I", "II", "III"]  # Rotores padrão usados automaticamente
@@ -12,7 +14,7 @@ def validar_txt(txt: str) -> None:
     Valida se o texto contém apenas letras do alfabeto A-Z.
     """
     if not txt or not all(letra in ALFABETO_BR_52 for letra in txt):
-        raise ValueError("ERRO: O texto inserido não é válido. Reescreva seguindo as regras:\n- Somente letras A-Z\n- Sem acentos ou caracteres especiais")
+        raise ValueError("ERRO: O texto inserido não é válido.")
     
 def validar_rotores(rotores: list[str]) -> None:
     """ Valida se os rotores estão na lista de válidos e se há exatamente 3. """

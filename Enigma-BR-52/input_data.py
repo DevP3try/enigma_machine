@@ -14,7 +14,7 @@ def input_plugboard(plug_str):
     return plugboard
 
 def input_rotores(rotores):
-    rotores = format.format_rotores(rotores) # NECESSARIO IMPLEMENTAR AINDA
+    rotores = format.format_rotores(rotores) 
     val.validar_rotores(rotores)
     return rotores
 

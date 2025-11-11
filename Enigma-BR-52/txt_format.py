@@ -4,7 +4,7 @@ import re
 # ==========================
 # CONSTANTES
 # ==========================
-ALFABETO_BR_52 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ÁÀÂÃÇÉÊÍÓÔÕÚ.,?"
+ALFABETO_BR_52 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ÁÀÂÃÇÉÊÍÓÔÕÚ .,?°:"
 ROTORES_VALIDOS = ["I", "II", "III", "IV", "V"]
 REFLETORES_VALIDOS = ["B", "C"]
 
@@ -26,7 +26,7 @@ def format_plug(plug_str: str) -> str:
     todas_letras = set()
     for par in plugs:
         if len(par) != 2 or not all(c in ALFABETO_BR_52 for c in par):
-            raise ValueError("ERRO: Cada par de plugboard deve ter exatamente 2 letras distintas de A-Z.")
+            raise ValueError("ERRO: Cada par de plugboard deve ter exatamente 2 letras distintas.")
         a, b = par[0], par[1]
         if a == b:
             raise ValueError("ERRO: Pares de plugboard devem ser letras distintas.")
